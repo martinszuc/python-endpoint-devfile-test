@@ -19,7 +19,7 @@ projects:
       remotes:
         origin: https://github.com/devfile-samples/python-ex
 components:
-  - name: tools
+  - name: py
     container:
       image: registry.access.redhat.com/ubi9/python-39:1-192
       args: ['tail', '-f', '/dev/null']
@@ -45,12 +45,12 @@ commands:
       group:
         kind: build
         isDefault: true
-      component: tools
+      component: py
   - id: run-app
     exec:
       commandLine: 'python app.py'
       workingDir: ${PROJECT_SOURCE}
-      component: tools
+      component: py
       group:
         kind: run
         isDefault: true
@@ -58,6 +58,6 @@ commands:
     exec:
       commandLine: 'pip install debugpy && python -m debugpy --listen 0.0.0.0:${DEBUG_PORT} app.py'
       workingDir: ${PROJECT_SOURCE}
-      component: tools
+      component: py
       group:
         kind: debug
