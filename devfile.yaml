@@ -21,7 +21,7 @@ projects:
 components:
   - name: py
     container:
-      image: registry.access.redhat.com/ubi9/python-39:latest
+      image: registry.access.redhat.com/ubi8/python-39:latest
       args: ['tail', '-f', '/dev/null']
       mountSources: true
       endpoints:
